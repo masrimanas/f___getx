@@ -3,6 +3,8 @@ import 'package:get/get.dart';
 class FormController extends GetxController {
   final acaraTerpilih = Rx<int?>(null);
   final kegiatanTerpilih = Rx<int?>(null);
+  final kegiatanTerpilihString = Rx<String?>(null);
+  final acaraTerpilihString = Rx<String?>(null);
 
   final jenisAcara = <String>['Online', 'Offline'].obs;
 
@@ -21,6 +23,8 @@ class FormController extends GetxController {
     acaraTerpilih.value = index;
     kegiatanTerpilih.value = null;
   }
+
+  
 
   @override
   void onInit() {

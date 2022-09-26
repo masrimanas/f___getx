@@ -45,6 +45,21 @@ class FormView extends GetView<FormController> {
               ),
               onChanged: (value) {
                 controller.kegiatanTerpilih.value = value as int;
+
+                // Buat kondisi List yang diambil berdasarkan jenis acara (Offline / Online)
+                if (controller.acaraTerpilih.value == 0) {
+                  // Simpan dalam variable, value string yang mau diambil
+                  final value = controller
+                      .jenisKegiatanOnline[controller.kegiatanTerpilih.value!];
+                  // Simpan value ke dalam state
+                  controller.acaraTerpilihString.value = value;   
+
+                } else {
+                  final value = controller
+                      .jenisKegiatanOffline[controller.kegiatanTerpilih.value!];
+                   
+                  controller.acaraTerpilihString.value = value;   
+                }
                 log('kegiatan terpilih: ${controller.kegiatanTerpilih.value}');
               },
             ),
